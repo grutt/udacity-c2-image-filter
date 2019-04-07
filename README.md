@@ -1,5 +1,33 @@
 # udacity-c2-image-filter
 
-pip install virtualenv
-virtualenv venv
-source venv/bin/activate
+
+
+##Tasks
+### Setup Python Enviornment
+`pip install virtualenv`
+`virtualenv venv`
+`source venv/bin/activate`
+
+### Setup Node Enviornment
+`npm init`
+`npm i express aws-sdk  --save`
+`npm i ts-node-dev tslint typescript --save-dev`
+`npm i @types/bluebird @types/express @types/node --save-dev`
+
+### Create a new server.ts file
+Use our basic server as an example to set up this file. For this project it's ok to keep all of your business logic in the one server.ts file, but you can try to use feature directories and app.use routing if you're up for it.
+
+### Add your POST imagetoprocess endpoint
+It should take a string filekey as an input paramater or respond with 422 unprocessable.
+It should require a token in the Auth Header or respond with 401 unauthorized.
+    The matching token should be saved as an enviornment variable
+    (TIP we broke this out into its own auth.router before, but youc an access headers as part of the req.headers within your endpoint block)
+It should NOT use SignedUrls, instead use the aws s3 iny andterface to GetObjects and save to disk locally and put object from disk into the bucket.
+    (TIP don't forget we'll need this server to have limited permissions for this bucket)
+
+#### Extra Credit
+Image processing and other complex processing tasks might take a decent amount of time. Try implementing postback urls.
+    Repond to the original request with 200 if the request is well formed and processing started. The requesting service should include a url to postback status to.
+    Upon completion of the process, post a 200 response indicating the processing was completed.
+
+### Deploying your system!

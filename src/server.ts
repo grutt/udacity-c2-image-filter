@@ -5,7 +5,7 @@ import { spawn } from 'child_process';
 (async () => {
 
   const app = express();
-  const port = 8081; // default port to listen
+  const port = 8082; // default port to listen
   
   app.use(bodyParser.json());
   
@@ -24,7 +24,6 @@ import { spawn } from 'child_process';
         // Do something with the data returned from python script
         console.log(data.toString())
       });
-  
     }
 
     res.send( "pythonic" );
