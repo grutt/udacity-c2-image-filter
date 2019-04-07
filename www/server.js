@@ -13,9 +13,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const child_process_1 = require("child_process");
 (() => __awaiter(this, void 0, void 0, function* () {
     const app = express_1.default();
-    const port = 8080; // default port to listen
+    const port = 8082; // default port to listen
     app.use(body_parser_1.default.json());
     //VERY BAD
     app.use(function (req, res, next) {
@@ -25,7 +26,14 @@ const body_parser_1 = __importDefault(require("body-parser"));
     });
     // Root URI call
     app.get("/", (req, res) => __awaiter(this, void 0, void 0, function* () {
-        res.send("/api/v0/");
+        const pythonProcess = child_process_1.spawn('python3', ["src/image_filter.py"]);
+        if (pythonProcess !== undefined) {
+            pythonProcess.stdout.on('data', (data) => {
+                // Do something with the data returned from python script
+                console.log(data.toString());
+            });
+        }
+        res.send("pythonic");
     }));
     // Start the Server
     app.listen(port, () => {
