@@ -8,6 +8,8 @@
 `virtualenv venv`
 `source venv/bin/activate`
 
+`deactivate`
+
 ### Setup Node Enviornment
 `npm init`
 `npm i express aws-sdk  --save`
