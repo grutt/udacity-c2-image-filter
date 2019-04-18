@@ -28,12 +28,16 @@ Which is the final project for the course. It is a Node-Express application whic
 Use our basic server as an example to set up this file. For this project it's ok to keep all of your business logic in the one server.ts file, but you can try to use feature directories and app.use routing if you're up for it.
 
 ### Add an endpoint to handle POST imagetoprocess requests
-It should take a string filekey as an input paramater or respond with 422 unprocessable.
+It should accept two POST paramaters:
+    image_url: string - a public url of a valid image file
+    upload_image_signedUrl: string (OPTIONAL) - a url which will allow a PUT request with the processed image
+It should respond with 422 unprocessable if either POST paramaters are invalid.
 It should require a token in the Auth Header or respond with 401 unauthorized.
     The matching token should be saved as an enviornment variable
-    (TIP we broke this out into its own auth.router before, but youc an access headers as part of the req.headers within your endpoint block)
-It should NOT use SignedUrls, instead use the aws s3 iny andterface to GetObjects and save to disk locally and put object from disk into the bucket.
-    (TIP don't forget we'll need this server to have limited permissions for this bucket)
+    (TIP we broke this out into its own auth.router before, but you can access headers as part of the req.headers within your endpoint block)
+It should respond with the image as the body if upload_image_signedUrl is included in the request.
+It should respond with a success message if if upload_image_signedUrl is NOT included in the request.
+
 
 ### Refactor your restapi server
 #### Add a request to the image-filter server within the RestAPI POST feed endpoint
