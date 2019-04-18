@@ -48,9 +48,12 @@ It should respond with a success message if if upload_image_signedUrl is NOT inc
 
 ### Refactor your restapi server
 #### Add a request to the image-filter server within the RestAPI POST feed endpoint
-It should include a POST request to the new server (TIP keep the server address and token as enviornment variables)
 
-It should overwrite the image in the bucket with the filtered image
+It should create new SignedURLs required for the imagetoprocess POST Request body.
+
+It should include a POST request to the new server (TIP keep the server address and token as enviornment variables).
+
+It should overwrite the image in the bucket with the filtered image (in other words, it will have the same filename in S3).
 
 
 ### Deploying your system!
