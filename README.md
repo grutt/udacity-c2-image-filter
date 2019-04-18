@@ -57,15 +57,15 @@ It should overwrite the image in the bucket with the filtered image
 Follow the process described in the course to `eb init` a new application and `eb create` a new enviornment to deploy your image-filter service!
 
 
-#### Stand Out
-##### Postman Integration Tests
+## Stand Out
+#### Postman Integration Tests
 Try writing a postman collection to test your endpoint. Be sure to cover:
 > POST requests with and without tokens
 > POST requests with valid and invalid paramaters
 
-##### Refactor Data Models
+#### Refactor Data Models
 Try adding another column to your tables to save a separate key for your filtered image. Remember, you'll have to rename the file before adding it to S3!
 
-##### (ADVANCED) Refactor Data Models
+#### (ADVANCED) Refactor Data Models
 Try adding a second OpenCV filter script and add an addtional paramater to select which filter to use as a POST paramater
 
