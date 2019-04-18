@@ -29,26 +29,43 @@ Use our basic server as an example to set up this file. For this project it's ok
 
 ### Add an endpoint to handle POST imagetoprocess requests
 It should accept two POST paramaters:
-    image_url: string - a public url of a valid image file
-    upload_image_signedUrl: string (OPTIONAL) - a url which will allow a PUT request with the processed image
+>    image_url: string - a public url of a valid image file
+
+>    upload_image_signedUrl: string (OPTIONAL) - a url which will allow a PUT request with the processed image
+    
 It should respond with 422 unprocessable if either POST paramaters are invalid.
+
 It should require a token in the Auth Header or respond with 401 unauthorized.
-    The matching token should be saved as an enviornment variable
-    (TIP we broke this out into its own auth.router before, but you can access headers as part of the req.headers within your endpoint block)
+
+> The matching token should be saved as an enviornment variable
+    
+> (TIP we broke this out into its own auth.router before, but you can access headers as part of the req.headers within your endpoint block)
+
 It should respond with the image as the body if upload_image_signedUrl is included in the request.
+
 It should respond with a success message if if upload_image_signedUrl is NOT included in the request.
 
 
 ### Refactor your restapi server
 #### Add a request to the image-filter server within the RestAPI POST feed endpoint
 It should include a POST request to the new server (TIP keep the server address and token as enviornment variables)
+
 It should overwrite the image in the bucket with the filtered image
 
 
-#### Extra Credit - Postman Integration Tests
-Try writing a postman collection to test your endpoint. Be sure to cover:
-    POST requests with and without tokens
-    POST requests with valid and invalid paramaters
-
 ### Deploying your system!
 Follow the process described in the course to `eb init` a new application and `eb create` a new enviornment to deploy your image-filter service!
+
+
+#### Stand Out
+##### Postman Integration Tests
+Try writing a postman collection to test your endpoint. Be sure to cover:
+> POST requests with and without tokens
+> POST requests with valid and invalid paramaters
+
+##### Refactor Data Models
+Try adding another column to your tables to save a separate key for your filtered image. Remember, you'll have to rename the file before adding it to S3!
+
+##### (ADVANCED) Refactor Data Models
+Try adding a second OpenCV filter script and add an addtional paramater to select which filter to use as a POST paramater
+
