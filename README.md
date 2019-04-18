@@ -28,12 +28,12 @@ Which is the final project for the course. It is a Node-Express application whic
 Use our basic server as an example to set up this file. For this project it's ok to keep all of your business logic in the one server.ts file, but you can try to use feature directories and app.use routing if you're up for it.
 
 ### Add an endpoint to handle POST imagetoprocess requests
-It should accept two POST paramaters:
+It should accept two POST parameter:
 >    image_url: string - a public url of a valid image file
 
 >    upload_image_signedUrl: string (OPTIONAL) - a url which will allow a PUT request with the processed image
     
-It should respond with 422 unprocessable if either POST paramaters are invalid.
+It should respond with 422 unprocessable if either POST parameter are invalid.
 
 It should require a token in the Auth Header or respond with 401 unauthorized.
 
@@ -61,11 +61,11 @@ Follow the process described in the course to `eb init` a new application and `e
 #### Postman Integration Tests
 Try writing a postman collection to test your endpoint. Be sure to cover:
 > POST requests with and without tokens
-> POST requests with valid and invalid paramaters
+> POST requests with valid and invalid parameter
 
 #### Refactor Data Models
 Try adding another column to your tables to save a separate key for your filtered image. Remember, you'll have to rename the file before adding it to S3!
 
 #### (ADVANCED) Refactor Data Models
-Try adding a second OpenCV filter script and add an addtional paramater to select which filter to use as a POST paramater
+Try adding a second OpenCV filter script and add an addtional parameter to select which filter to use as a POST parameter
 
