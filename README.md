@@ -47,3 +47,4 @@ Try writing a postman collection to test your endpoint. Be sure to cover:
     POST requests with valid and invalid paramaters
 
 ### Deploying your system!
+Follow the process described in the course to `eb init` a new application and `eb create` a new enviornment to deploy your image-filter service!
