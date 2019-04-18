@@ -12,20 +12,25 @@ Which is the final project for the course. It is a Node-Express application whic
 
 ##Tasks
 ### Setup Python Enviornment
-`pip install virtualenv`
-`virtualenv venv`
-`source venv/bin/activate`
+You'll need to set up and use a virtual environment for this project.
 
-`deactivate`
+To create a virtual enviornment run the following from within the project directory:
+1. Install virtualenv dependency: `pip install virtualenv`
+2. Create a virtual enviornment:    `virtualenv venv`
+3. Activate the virtual enviornment: `source venv/bin/activate` (Note: You'll need to do this every time you open a new terminal)
+4. Install dependencies: `pip instal -r requirements.txt`
+
+Whe you're done working and leave the virual enviornment, run: `deactivate`
 
 ### Setup Node Enviornment
-`npm init`
-`npm i express aws-sdk  --save`
-`npm i ts-node-dev tslint typescript --save-dev`
-`npm i @types/bluebird @types/express @types/node --save-dev`
+You'll need to create a new node server. Open a new terminal within the project directory and run:
+1. Initialize a new project: `npm init`
+2. Install express: `npm i express --save`
+3. Install typescript dependencies: `npm i ts-node-dev tslint typescript  @types/bluebird @types/express @types/node --save-dev`
+4. Look at the `package.json` file from the RestAPI repo and copy the `scripts` block into the auto generated `package.json` in this project. This will allow you to use shorthand commands like `npm run dev`
 
 ### Create a new server.ts file
-Use our basic server as an example to set up this file. For this project it's ok to keep all of your business logic in the one server.ts file, but you can try to use feature directories and app.use routing if you're up for it.
+Use our basic server as an example to set up this file. For this project it's ok to keep all of your business logic in the one server.ts file, but you can try to use feature directories and app.use routing if you're up for it. Use the RestAPI structure to guide you.
 
 ### Add an endpoint to handle POST imagetoprocess requests
 It should accept two POST parameter:
